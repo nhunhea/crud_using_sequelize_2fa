@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  .container.card
+    h1.text-center.pag=title
+    .row
+      .col-sm-12
+        form.form-inline(action='/students/search', method='POST')
+          input.form-control.col.pag(type='text', name='keyword', placeholder='Search..')
+          select.custom-select.col.pag(name='order')
+            option#order(value='asc') Ascending
+            option#order(value='desc') Descending
+          select.custom-select.col.pag(name='opt')
+            option#opt(value='name') Name
+            option#opt(value='address') Address
+          button.btn.btn-info.col.pag(type='submit') Search
+    form.card-body(action='/students/insert', method='POST')
+      .form-group.row
+        input#name(type='hidden', name='studentID')
+        label.col-sm-4(for='name') Name: 
+        input#name.form-control.col-sm-8(type='text', name='name', value='', required='true')
+      .form-group.row
+        label.col-sm-4(for='address') Address: 
+        input#address.form-control.col-sm-8(type='text', name='address', required='true')
+      .form-group.row
+        label.col-sm-4(for='gender') Gender: 
+        label.radio-inline.col
+          input#gender(type='radio', name='gender', value='M')
+          |  Male
+        label.radio-inline.col
+          input#gender(type='radio', name='gender', value='F')
+          |  Female
+      .form-group.row
+        label.col-sm-4(for='date_of_birth') Date Of Birth: 
+        input#date_of_birth.form-control.col-sm-8(type='date', name='date_of_birth', required='true', min="1998-01-01", max="2006-01-01")
+      form-group.row
+        label.col-sm-4(for='email') Email: 
+        input#email.form-control.col-sm-8(type='email', name='email', value='', required='true')
+      .form-group.row
+        button.btn.btn-info.col.pagb(type='submit', onClick="return checkDate()") Add Student

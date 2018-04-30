@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/scripts.js')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+  body
+    .container
+      nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-info
+        a.navbar-brand(href='#') STudent DB
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo02', aria-controls='navbarTogglerDemo02', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarTogglerDemo02.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto.mt-2.mt-lg-0.d-flex
+            li.nav-item.active
+              a.nav-link(href='/students')
+                | Home 
+                span.sr-only (current)
+            li.nav-item
+              a.nav-link(href='/stat/2018') Statistics
+            li.nav-item
+              a.nav-link(href='/students') Students List
+            li.nav-item
+              a.nav-link(href='/students/insert') Add Students
+            li.nav-item
+              a.nav-link(href='/users') User List
+            li.nav-item
+              a.nav-link(href='/users/insert') Insert User
+            li.nav-item
+              a.nav-link(href='/setting') Setting
+          form.form-inline.my-2.my-lg-0
+            .nav-item.bg-light.text-white
+              a.nav-link(href='/logout') Logout
+
+    block content

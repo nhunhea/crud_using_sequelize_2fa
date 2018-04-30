@@ -1,0 +1,39 @@
+extends layout
+//- script.
+//-   $(document).ready(function(){
+//-     $("#hide").click(function(){
+//-         $("p").hide();
+//-     });
+//-     $("#show").click(function(){
+//-         $("p").show();
+//-     });
+block content
+  .container.card
+    h1.text-center.pag=title
+    form(action='/setting/set/enable' method="POST")
+      .form-group.row
+        input#userID(type='hidden', name='userID')
+        label.col-sm-4(for='status') Two Factor Authenticate: 
+          label.radio-inline.col
+            input#status(type='radio', name='status', value='enable', checked=status=='enable')
+            |  Enable
+          label.radio-inline.col
+            input#status(type='radio', name='status', value='disable', checked=status=='disable')
+            |  Disable
+        .form-group.row
+          button.btn.btn-info.col.pagb(type='submit') Confirm
+    form(action='/setting', method='POST')
+      .form-group.row
+        label.col-sm-6(for='url') Scan this QR Code to add Two Factor Authentication
+        img(src=url, alt='qr  code')
+      .form-group.row
+        label.col-sm-4(for=secret_key) Secret Key
+        input#secret_key.form-control.col-sm-8(type='text', name='secret_key', value=secret_key, readonly)
+      .form-group.row
+        label.col-sm-4(for='token') Code token
+        input#token.form-control.col-sm-8(type='text', name='token', value='', required='true')
+      .form-group.row
+        button.btn.btn-info.col.pagb(type='submit') Confirm Code
+        
+
+

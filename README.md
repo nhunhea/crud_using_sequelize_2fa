@@ -1,1 +1,1 @@
-# crud_using_sequelize_2fa
+# crud-sequelize-2fa

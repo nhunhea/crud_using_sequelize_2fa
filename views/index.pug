@@ -1,0 +1,85 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Login & Signup Form
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
+    link(rel='stylesheet prefetch', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav.main-nav
+      ul
+        li
+          a.signin(href='#0') Sign in
+        li
+          a.signup(href='#0') Sign up
+    .user-modal
+      .user-modal-container
+        ul.switcher
+          li
+            a(href='#0') Sign in
+          li
+            a(href='#0') New account
+        #login
+          form.form(method='POST', action='/login')
+            p.fieldset
+              label.image-replace.email(for='username') E-mail
+              input#username.full-width.has-padding.has-border(type='text', placeholder='Username', name='username', required='')
+              span.error-message An account with this username does not exist!
+            p.fieldset
+              label.image-replace.password(for='password') Password
+              input#password.full-width.has-padding.has-border(type='password', placeholder='Password')
+              a.hide-password(href='#0') Show
+              span.error-message Wrong password! Try again.
+            p.fieldset
+              input#remember-me(type='checkbox', checked='')
+              label(for='remember-me') Remember me
+            p.fieldset
+              //input.full-width(type='submit', value='Login')
+              .col-md-6
+                button.btn.btn-success(type='submit')
+                  i.fa.fa-sign-in
+                  |  Login
+          p.form-bottom-message
+            a(href='/forgot') Forgot your password?
+          // <a href="#0" class="close-form">Close</a>
+        #signup
+          form.form
+            p.fieldset
+              label.image-replace.username(for='signup-username') Username
+              input#signup-username.full-width.has-padding.has-border(type='text', placeholder='Username')
+              span.error-message Your username can only contain numeric and alphabetic symbols!
+            p.fieldset
+              label.image-replace.email(for='signup-email') E-mail
+              input#signup-email.full-width.has-padding.has-border(type='email', placeholder='E-mail')
+              span.error-message Enter a valid email address!
+            p.fieldset
+              label.image-replace.password(for='signup-password') Password
+              input#signup-password.full-width.has-padding.has-border(type='password', placeholder='Password')
+              a.hide-password(href='#0') Show
+              span.error-message Your password has to be at least 6 characters long!
+            p.fieldset
+              input#accept-terms(type='checkbox')
+              label(for='accept-terms')
+                | I agree to the 
+                a.accept-terms(href='#0') Terms
+            p.fieldset
+              input.full-width.has-padding(type='submit', value='Create account')
+          // <a href="#0" class="cd-close-form">Close</a>
+        #reset-password
+          p.form-message
+            | Lost your password? Please enter your email address.
+            br
+            |  You will receive a link to create a new password.
+          form.form
+            p.fieldset
+              label.image-replace.email(for='reset-email') E-mail
+              input#reset-email.full-width.has-padding.has-border(type='email', placeholder='E-mail')
+              span.error-message An account with this email does not exist!
+            p.fieldset
+              input.full-width.has-padding(type='submit', value='Reset password')
+          p.form-bottom-message
+            a(href='#0') Back to log-in
+        a.close-form(href='#0') Close
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+    script(src='../javascripts/index.js')
